@@ -48,11 +48,9 @@ const List = mongoose.model("List", listSchema)
 
 
 // app.get("/", function(req, res) {
-
-// // const day = date.getDate();
 //   Item.find({}, function (err, foundItems){
 //     if (foundItems.length === 0){
-//       Item.insertMany (defaultItems, function (err){
+//       Item.insertMany (arrayOfObjects, function (err){
 //           if (err){
 //             console.log(err);
 //           } else {
@@ -67,15 +65,11 @@ const List = mongoose.model("List", listSchema)
 // });
 
 app.get("/", function(req, res) {
-  // const day = date.getDate();
     Item.find({}, function (err, foundItems){
       if (!err){
-        console.log(foundItems)
         res.render("list", {listTitle: "Today", newListItems: foundItems});
       } 
     });
-
-
   });
 
 app.post("/", function(req, res){
